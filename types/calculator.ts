@@ -1,16 +1,21 @@
-export type ProductType = "milk" | "yogurt" | "cheese" | "butter";
+export type ProductType = "milk" | "yogurt" | "cheese" | "cream" | "butter";
 export type TimeFrame = "daily" | "weekly" | "monthly" | "yearly";
 
 export interface ConsumptionInput {
   productType: ProductType;
   amount: number;
-  unit: string;
+  timeFrame: TimeFrame;
 }
 
 export interface ImpactResult {
+  productType: ProductType;
+  timeFrame: TimeFrame;
+  amount: number;
+  yearlyAmount: number;
   carbonSaved: number;
   waterSaved: number;
   landSaved: number;
+  unit: string;
 }
 
 export interface CalculatorState {
@@ -24,4 +29,5 @@ export interface ConversionFactor {
   carbonPerUnit: number;
   waterPerUnit: number;
   landPerUnit: number;
+  unit: string;
 }
