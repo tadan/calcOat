@@ -55,33 +55,43 @@ Open [http://localhost:3000](http://localhost:3000) to view the app.
 
 ## Deployment
 
-### Vercel (Recommended)
+### Vercel via GitHub Actions (Recommended)
 
-This project includes automatic deployment via GitHub Actions.
+This project automatically deploys to Vercel on every push to `main`.
 
-#### Setup:
+#### Initial Setup:
 
-1. Create a Vercel project and link it to your repository
-2. Install Vercel CLI: `npm i -g vercel`
-3. Run `vercel` in your project directory and follow the prompts
-4. Get your Vercel token from https://vercel.com/account/tokens
-5. Add these secrets to your GitHub repository (Settings → Secrets and variables → Actions):
-   - `VERCEL_TOKEN`: Your Vercel token
-   - `VERCEL_ORG_ID`: Found in `.vercel/project.json` after running `vercel`
-   - `VERCEL_PROJECT_ID`: Found in `.vercel/project.json` after running `vercel`
+1. **Import your GitHub repo to Vercel:**
+   - Go to [vercel.com/new](https://vercel.com/new)
+   - Select your GitHub repository
+   - Click "Import"
+   - Vercel will auto-detect Next.js settings
 
-6. Add your Storyblok token as an environment variable in Vercel:
-   - Go to your Vercel project settings
-   - Navigate to Environment Variables
-   - Add `NEXT_PUBLIC_STORYBLOK_ACCESS_TOKEN`
+2. **Add environment variable in Vercel:**
+   - In your Vercel project → Settings → Environment Variables
+   - Add: `NEXT_PUBLIC_STORYBLOK_ACCESS_TOKEN` = your Storyblok token
 
-#### Manual Deployment:
+3. **Get your Vercel project IDs:**
+   - Install Vercel CLI: `npm i -g vercel`
+   - Run: `vercel link` (follow prompts to link to your Vercel project)
+   - The IDs are now in `.vercel/project.json` (this file is gitignored)
+
+4. **Add GitHub Secrets:**
+   - Go to your GitHub repo → Settings → Secrets and variables → Actions
+   - Add these three secrets:
+     - `VERCEL_TOKEN`: Get from [vercel.com/account/tokens](https://vercel.com/account/tokens)
+     - `VERCEL_ORG_ID`: Copy from `.vercel/project.json`
+     - `VERCEL_PROJECT_ID`: Copy from `.vercel/project.json`
+
+5. **Done!** Every push to `main` now automatically deploys.
+
+#### Manual Deployment (Alternative):
+
+If you prefer manual deployments without GitHub Actions:
 
 ```bash
 vercel --prod
 ```
-
-Now every push to `main` will automatically deploy to Vercel!
 
 ## Project Structure
 
