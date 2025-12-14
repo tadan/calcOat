@@ -53,46 +53,6 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) to view the app.
 
-## Deployment
-
-### Vercel via GitHub Actions (Recommended)
-
-This project automatically deploys to Vercel on every push to `main`.
-
-#### Initial Setup:
-
-1. **Import your GitHub repo to Vercel:**
-   - Go to [vercel.com/new](https://vercel.com/new)
-   - Select your GitHub repository
-   - Click "Import"
-   - Vercel will auto-detect Next.js settings
-
-2. **Add environment variable in Vercel:**
-   - In your Vercel project → Settings → Environment Variables
-   - Add: `NEXT_PUBLIC_STORYBLOK_ACCESS_TOKEN` = your Storyblok token
-
-3. **Get your Vercel project IDs:**
-   - Install Vercel CLI: `npm i -g vercel`
-   - Run: `vercel link` (follow prompts to link to your Vercel project)
-   - The IDs are now in `.vercel/project.json` (this file is gitignored)
-
-4. **Add GitHub Secrets:**
-   - Go to your GitHub repo → Settings → Secrets and variables → Actions
-   - Add these three secrets:
-     - `VERCEL_TOKEN`: Get from [vercel.com/account/tokens](https://vercel.com/account/tokens)
-     - `VERCEL_ORG_ID`: Copy from `.vercel/project.json`
-     - `VERCEL_PROJECT_ID`: Copy from `.vercel/project.json`
-
-5. **Done!** Every push to `main` now automatically deploys.
-
-#### Manual Deployment (Alternative):
-
-If you prefer manual deployments without GitHub Actions:
-
-```bash
-vercel --prod
-```
-
 ## Project Structure
 
 ```
@@ -130,7 +90,6 @@ calcoat/
 
 Inspired by Oatly's minimalist aesthetic:
 - Black and white color palette
-- Thick brutal borders (3px-6px)
 - Courier New monospace font (Magda Mono fallback)
 - Strong geometric patterns
 - Playful copy with serious design
@@ -150,7 +109,3 @@ Made by Daniele Tatasciore as an homage to Oatly's addictive products.
 
 - Portfolio: [work.daniele.is](https://work.daniele.is)
 - Email: work@daniele.is
-
----
-
-🤖 Built with [Claude Code](https://claude.com/claude-code)
